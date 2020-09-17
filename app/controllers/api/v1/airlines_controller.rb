@@ -1,18 +1,20 @@
 class Api::V1::AirlinesController < ApplicationController
+    protect_from_forgery with: :null_session
+
     def index
         airlines = Airline.all
-        render json: AirlineSerializer(airlines, options).serialized_json
+        render json: AirlineSerializer.new(airlines, options).serialized_json
     end
 
     def show
         airline = Airline.find_by(slug: params[:slug])
-        render json: AirlineSerializer(airlines, options).serialized_json
+        render json: AirlineSerializer.new(airline, options).serialized_json
     end
 
     def create
         airline = Airline.new(airline_params)
         if airline.save
-            render json: AirlineSerializer(airlines).serialized_json
+            render json: AirlineSerializer.new(airline).serialized_json
         else
             render json: {error: airline.errors.messages}, status: 422
         end
@@ -21,7 +23,7 @@ class Api::V1::AirlinesController < ApplicationController
     def update
         airline = Airline.find_by(slug: params[:slug])
         if airline.update(airline_params)
-            render json: AirlineSerializer(airlines, options).serialized_json
+            render json: AirlineSerializer.new(airline, options).serialized_json
         else
             render json: {error: airline.errors.messages}, status: 422
         end
@@ -39,7 +41,7 @@ class Api::V1::AirlinesController < ApplicationController
     private
 
     def airline_params
-        params.require(:airlines).permit(:name, :image_url)
+        params.require(:airline).permit(:name, :image_url)
     end
 
     def options

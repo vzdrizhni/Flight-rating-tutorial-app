@@ -1,11 +1,13 @@
 class Api::V1::ReviewsController < ApplicationController
+  protect_from_forgery with: :null_session
+
     def create
         review = Review.new(review_params)
 
         if review.save
-          render json: ReviewSerializer(review).serialized_json
+          render json: ReviewSerializer.new(review).serialized_json
         else
-          render json: {error: review.errors.messages}, status 422
+          render json: {error: review.errors.messages}, status: 422
         end
       end
 
@@ -16,7 +18,7 @@ class Api::V1::ReviewsController < ApplicationController
         if review.destroy
           head :no_content
         else
-          render json: {error: review.errors.messages}, status 422
+          render json: {error: review.errors.messages}, status: :ok
         end
       end
 
