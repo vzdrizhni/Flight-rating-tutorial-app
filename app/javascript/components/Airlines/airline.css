@@ -1,0 +1,51 @@
+.card {
+    border: 1px solid #efefef;
+    background-color: #fff;
+    text-align: center;
+}
+
+.airline-logo {
+    width: 50px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.airline-logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 1px solid #efefef;
+}
+
+.airline-name {
+    padding: 20px 0 10px 0;
+}
+
+.airline-link {
+    margin: 30px 0 20px 0;
+    height: 50px;
+}
+
+.airline-link a {
+    color: #fff;
+    background-color: #71b406;
+    border-radius: 4px;
+    padding: 10px 50px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid #71b406;
+    text-align: center;
+    line-height: 20px;
+    min-height: 40px;
+    margin: 7px;
+    font-weight: 600;
+    text-decoration: none;
+    width: 100%;
+    transition: ease-in-out 0.1s;
+}
+
+.airline-link a:hover {
+    border-color: #619a07;
+    background: #619a07;
+}

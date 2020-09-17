@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import Airline from "./Airline";
+import './airlines.css'
+
 const Airlines = () => {
     const [airlines, setAirlines] = useState([])
 
@@ -19,15 +21,15 @@ const Airlines = () => {
     console.log(grid);
 
     return(
-        <Fragment>
+        <div className='home'>
             <div className='header'>
                 <h1>OpenFlights</h1>
                 <div className='subheader'>Honest, unbiased airline reviews</div>
             </div>
             <div className='grid'>
-                <ul>{grid}</ul>
+                {grid}
             </div>
-        </Fragment>
+        </div>
     )
 }
 
