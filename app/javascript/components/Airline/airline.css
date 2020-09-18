@@ -1,0 +1,23 @@
+.column {
+  background: #fff;
+  max-width: 50%;
+  width: 50%;
+  float: left;
+  height: 100vh;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  overflow: scroll;
+}
+
+.column::-webkit-scrollbar {
+    display: none;
+}
+
+.column:last-child {
+    background: black;
+    border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+.main {
+    padding-left: 60px;
+}
